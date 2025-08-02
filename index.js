@@ -28,8 +28,8 @@ const allowedOrigins = [
 
 app.use(
     cors({
-        origin: allowedOrigins,
-        credentials: true, // if you’re using cookies / auth headers
+        origin: "*", // allow all origins
+        credentials: false // cannot use `true` with "*"
     })
 );
 
