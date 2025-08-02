@@ -20,7 +20,19 @@ const PORT = process.env.PORT || 3000;
 
 //Middlewares
 
-app.use(cors());
+
+const allowedOrigins = [
+    "http://localhost:5173", // for dev
+    "https://satalya-frontend.vercel.app" // your deployed frontend
+];
+
+app.use(
+    cors({
+        origin: allowedOrigins,
+        credentials: true, // if you’re using cookies / auth headers
+    })
+);
+
 app.use(express.json());
 
 
